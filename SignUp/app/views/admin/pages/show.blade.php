@@ -17,7 +17,9 @@
             <div class="body">
                 {{ $page->body }}
             </div>
-
+            <div class="body">
+                {{ $page->body }}
+            </div>
         </div>
  
 @stop

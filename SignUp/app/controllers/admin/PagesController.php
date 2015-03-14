@@ -11,12 +11,14 @@ class PagesController extends \BaseController {
 
     public function index()
     {
-        return \View::make('admin.pages.index')->with('pages', Page::all());
+        //return \View::make('admin.pages.index')->with('pages', Page::all());
+        $pages = Page::paginate(10);
+        return \View::make('admin.pages.index')->with('pages', $pages);
     }
 
     public function show($id)
     {
-        return \View::make('admin.pages.show')->with('page', Page::find($id))->withAuthor(Sentry::findUserById(Page::find($id)->user_id)->name);
+        return \View::make('admin.pages.show')->with('page', Page::find($id))->withAuthor(Sentry::findUserById(Page::find($id)->user_id)->first_name);
     }
 
     public function create()
