@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>Admin</title>
+  <title>Learn Laravel 4</title>
 
   @include('admin._partials.assets')
 
@@ -12,7 +12,7 @@
   <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
     <div class="container">
-      <a class="brand" href="{{ URL::route('admin.pages.index') }}">Admin</a>
+      <a class="brand" href="{{ URL::route('admin.lectures.index') }}">Admin</a>
 
       @include('admin._partials.navigation')
 

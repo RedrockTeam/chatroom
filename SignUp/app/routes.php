@@ -17,7 +17,7 @@ Route::post('admin/login', array('as' => 'admin.login.post', 'uses' => 'App\Cont
 
 Route::group(array('prefix' => 'admin', 'before' => 'auth.admin'), function()
 {
-    Route::any('/', 'App\Controllers\Admin\PagesController@index');
-    Route::resource('articles', 'App\Controllers\Admin\ArticlesController');
-    Route::resource('pages', 'App\Controllers\Admin\PagesController');
+    Route::any('/', 'App\Controllers\Admin\LecturesController@index');
+    Route::resource('signUpUsers', 'App\Controllers\Admin\signUpUsersController');
+    Route::resource('lectures', 'App\Controllers\Admin\LecturesController');
 });

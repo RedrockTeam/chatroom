@@ -1,5 +1,5 @@
 <?php
 
-class Article extends \Eloquent {
+class SignUser extends \Eloquent {
 	protected $fillable = [];
 }

@@ -1,8 +1,5 @@
 <?php
 
-// Composer: "fzaninotto/faker": "v1.3.0"
-use Faker\Factory as Faker;
-
 class SentryTableSeeder extends Seeder {
 
     public function run()
@@ -12,10 +9,10 @@ class SentryTableSeeder extends Seeder {
         DB::table('users_groups')->delete();
 
         Sentry::getUserProvider()->create(array(
-            'email'      => 'oo@xx.com',
-            'password'   => "ooxx",
-            'first_name' => 'OO',
-            'last_name'  => 'XX',
+            'email'      => 'admin@redrock.com',
+            'password'   => "hongyanredrock",
+            'first_name' => 'admin',
+            'last_name'  => 'redrock',
             'activated'  => 1,
         ));
 
@@ -25,9 +22,8 @@ class SentryTableSeeder extends Seeder {
         ));
 
         // 将用户加入用户组
-        $adminUser  = Sentry::getUserProvider()->findByLogin('oo@xx.com');
+        $adminUser  = Sentry::getUserProvider()->findByLogin('admin@redrock.com');
         $adminGroup = Sentry::getGroupProvider()->findByName('Admin');
         $adminUser->addGroup($adminGroup);
     }
-
 }
