@@ -22,6 +22,9 @@
             </div>
             <div class="body">
                 <p><span>主讲人:</span>{{ $page->lec_speaker_name }}</p>
+                <div style="width: 100px;height: 100px;">
+                <img src="{{ URL::asset('uploads/'.$path) }}" alt="未上传图片"/>
+                </div>
             </div>
             <div class="body">
                 <p><span>主讲人介绍:<span>{{ $page->lec_speaker_introduce }}</p>

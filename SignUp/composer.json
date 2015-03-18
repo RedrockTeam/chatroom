@@ -10,7 +10,8 @@
 	},
 	"require-dev": {
     "way/generators": "~2.0",
-    "fzaninotto/faker": "1.4.0"
+    "fzaninotto/faker": "1.4.0",
+    "intervention/image": "2.0.15"
 	},
 	"autoload": {
 		"classmap": [

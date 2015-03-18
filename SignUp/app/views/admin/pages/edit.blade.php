@@ -11,7 +11,7 @@
                     {{ implode('<br>', $errors->all()) }}
             </div>
     @endif
-    {{ Form::model($lecture, array('method' => 'put', 'route' => array('admin.lectures.update', $lecture->lec_id))) }}
+    {{ Form::model($lecture, array('method' => 'put', 'route' => array('admin.lectures.update', $lecture->lec_id), 'files' => true)) }}
         <div>
             <div style="float: left;">
                 <div class="control-group">
@@ -69,6 +69,12 @@
                     {{ Form::label('title', '报名结束时间:') }}
                     <div class="controls">
                         <input name="deadline" type="date"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('title', '上传头像:') }}
+                    <div class="controls">
+                        {{ Form::file('path', array('class' => 'path')) }}
                     </div>
                 </div>
             </div>

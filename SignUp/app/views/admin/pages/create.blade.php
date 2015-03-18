@@ -12,7 +12,8 @@
             </div>
     @endif
 
-    {{ Form::open(array('route' => 'admin.lectures.store')) }}
+    {{--{{ Form::open(array('route' => 'admin.lectures.store')) }}--}}
+    {{ Form::open(array('route' => 'admin.lectures.store', 'files' => true)) }}
         <div>
             <div style="float: left;">
                 <div class="control-group">
@@ -70,6 +71,12 @@
                     {{ Form::label('title', '报名结束时间:') }}
                     <div class="controls">
                         <input name="deadline" type="date"/>
+                    </div>
+                </div>
+                <div class="control-group">
+                    {{ Form::label('title', '上传头像:') }}
+                    <div class="controls">
+                        {{ Form::file('path', array('class' => 'path')) }}
                     </div>
                 </div>
             </div>
