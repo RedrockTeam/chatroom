@@ -1,13 +1,15 @@
-
+<!doctype html>
 <html>
 <head>
-	<title></title>
-	<meta charset='utf-8'>
+    <meta charset='utf-8'>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/mystyle.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::asset('css/reset.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/detail.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/mystyle.css') }}">
+	<title>微信报名系统</title>
 </head>
 <body>
+
     <div id="header">
          <a href="javascript:void(0)"><img src='images/back.png'></a>
          <p>微信报名系统</p>
@@ -17,17 +19,18 @@
         <div id="box">
              <span id="id">第152期</span>
              <a id="detail" href="detail.html">了解话题详情>></a>
-         </div>
+        </div>
         <div id="p_wrapper">
              <p id='theme'>今期话题：</p>
              <p id="content">你觉得价值观体现在哪里你觉得价值观体现在哪里？</p>
-             <img id="person_logo" src="images/person_logo.png"><span id="name">特邀嘉宾：<span id="person">xxxx</span></span>
+             <img id="person_logo" src="images/person_logo.png">
+             <span id="name">特邀嘉宾：<span id="person">xxxx</span></span>
              <p class="time">活动开始时间：2015年3月12号 下午7：00</p>
              <p class="time">报名时间:2015.3.16 上午4：00--下午7：00</p>
         </div>
     </div>
     <div id="form_outer">
-        <div id="form_wrapper">
+         <div id="form_wrapper">
          <form>
             <label>姓  名：</label>
             <input type='text' name="username" placeholder='必填 例如：张三' required="required"/><br/>
@@ -46,6 +49,7 @@
     <div id="footer">
          <a id="join" href="javascript:void(0)"><img id='join_img'  src='images/join.png'></a>
     </div>
+
 </body>
-<script type="text/javascript" src='js/layout.js'></script>
+<script type="text/javascript" src='{{ URL::asset('js/layout.js') }}'></script>
 </html>
