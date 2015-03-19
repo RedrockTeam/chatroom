@@ -2,11 +2,7 @@
 
 namespace App\Controllers\Home;
 
-use SignLecture;
-
-use Input, Notification, Redirect, Sentry, Str, DB;
-
-use Auth, BaseController, Form, View;
+use Auth, BaseController, Form, Input, Redirect, Sentry, View;
 
 class IndexController extends BaseController {
 
@@ -25,17 +21,7 @@ class IndexController extends BaseController {
 
     public function index()
     {
-        $lastOne = DB::table('sign_lectures')
-                            ->orderBy('lec_id', 'desc')
-                            ->limit(1)
-                            ->get();
-
-        return View::make('home.index.index')->with('lastOne', $lastOne[0]);
+        return View::make('home.index.index');
     }
 
-    public function signUp()
-    {
-        dd(Input::all());
-        return View::make('home.index.signUp');
-    }
 }
