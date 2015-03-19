@@ -1,12 +1,12 @@
 (function(){
-  var submit = document.querySelector('#join');
+  var submit = document.querySelector('#join_img');
 
-  submit.addEventListener('click',function(e){
-  	e.preventDefault();
+submit.onclick = function(e){
+    e.preventDefault();
     check();
-  },false)
+}
 }())
-
+  
 
 function check(){
 	var inputs = document.getElementsByTagName('input'),
