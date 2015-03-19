@@ -3,7 +3,7 @@
 namespace App\Controllers\Admin;
 
 use SignLecture;
-use Input, Notification, Redirect, Sentry, Str, DB, Intervention\Image\Facades\Image;
+use Input, Notification, Redirect, Sentry, Str, DB;
 
 use App\Services\Validators\PageValidator;
 

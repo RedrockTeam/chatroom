@@ -8,7 +8,7 @@ use Input, Notification, Redirect, Sentry, Str, DB;
 
 use Auth, BaseController, Form, View;
 
-class IndexController extends BaseController {
+class SignController extends BaseController {
 
     /*
     |--------------------------------------------------------------------------
@@ -23,19 +23,8 @@ class IndexController extends BaseController {
     |
     */
 
-    public function index()
-    {
-        $lastOne = DB::table('sign_lectures')
-                            ->orderBy('lec_id', 'desc')
-                            ->limit(1)
-                            ->get();
-
-        return View::make('home.index.index')->with('lastOne', $lastOne[0]);
-    }
-
     public function signUp()
     {
-        dd(Input::all());
         return View::make('home.index.signUp');
     }
 }

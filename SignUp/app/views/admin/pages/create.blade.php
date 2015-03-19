@@ -12,7 +12,6 @@
             </div>
     @endif
 
-    {{--{{ Form::open(array('route' => 'admin.lectures.store')) }}--}}
     {{ Form::open(array('route' => 'admin.lectures.store', 'files' => true)) }}
         <div>
             <div style="float: left;">
