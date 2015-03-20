@@ -54,7 +54,33 @@
     {{ Form::close() }}
     <div id="cover"></div>
 <script type="text/javascript" src='{{ URL::asset('js/layout.js') }}'></script>
-{{--<script type="text/javascript" src='{{ URL::asset('js/login.js') }}'></script>--}}
-{{--<script type="text/javascript" src='{{ URL::asset('js/date.js') }}'></script>--}}
+<script type="text/javascript">
+    function transdate(endTime){
+    var date=new Date();
+    date.setFullYear(endTime.substring(0,4));
+    date.setMonth(endTime.substring(5,7)-1);
+    date.setDate(endTime.substring(8,10));
+    date.setHours(endTime.substring(11,13));
+    date.setMinutes(endTime.substring(14,16));
+    date.setSeconds(endTime.substring(17,19));
+    return Date.parse(date)/1000;
+    }
+  window.onload = function(){
+            var submit = document.querySelector('#join_img');
+            var body = document.body;
+            var begin = transdate("{{ $lastOne->lec_begintime }}");
+            var end   = transdate("{{ $lastOne->lec_deadline }}");
+            var today = new Date().getTime();
+            alert(begin);
+            alert(end);
+            alert(today);
+            if(today > begin && today < end){
+            }else{
+            	submit.style.background = 'gray';
+                submit.onclick = null;
+                body.style.color = 'gray';
+            }
+        }
+</script>
 </body>
 </html>
