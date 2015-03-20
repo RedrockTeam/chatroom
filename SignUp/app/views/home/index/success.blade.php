@@ -12,8 +12,7 @@
          <p>微信报名系统</p>
     </div>
     <div id="content">
-        <p>恭喜您报名成功！</p>
-        <p>此群的群号是:xxx</p>
+        <p>{{ $returnMsg }}</p>
         <p class="small">5秒钟后将跳转到重邮小帮手主页！</p>
     </div>
     <script type="text/javascript" src='{{ URL::asset('js/layout.js') }}'></script>

@@ -4,7 +4,7 @@ namespace App\Controllers\Home;
 
 use SignUser, SignLecture;
 
-use Auth, BaseController, Form, Input, Redirect, Sentry, View, DB;
+use Auth, BaseController, Form, Input, Redirect, Sentry, View, DB, Validator;
 
 use App\Services\Validators\SignValidator;
 
@@ -34,27 +34,55 @@ class IndexController extends BaseController {
         return View::make('home.index.index')->with('lastOne', $lastOne[0]);
     }
 
-    public function signUp()
+    public function signUp($openid='null')
     {
-        $validation = new SignValidator;
+        $input = Input::all();
+        $validator = Validator::make(
+            array(
+                'username' => $input['username'],
+                'stu_id' => $input['stu_id'],
+                'phonenumber' => $input['phonenumber']
+            ),
+            array(
+                'username' => 'required|between:4,10',
+                'stu_id' => 'required|digits:10',
+                'phonenumber' => 'required|digits:11',
+            )
+        );
+        if ($validator->fails()){
+            return Redirect::back()->withInput()->withErrors($validator->errors);
+        }else {
+            $re = Input::get('openid');
 
-        if ($validation->passes())
-        {
-            if(true)    //验证是否绑定重邮小帮手
+            $uri = "http://hongyan.cqupt.edu.cn/MagicLoop/index.php?s=/addon/BenchMark/BenchMark/verify";
+            // 参数数组
+            $data = array(
+                'openid' => $re
+            );
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_URL, $uri);
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_HEADER, 0);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+            $return = curl_exec($ch);
+            curl_close($ch);
+            $result = json_decode($return, true);    //json字符串转化为数组
+
+            if ($result['status'] == 200)    //验证是否绑定重邮小帮手
             {
-                $sign = new SignUser;
-                $sign->user_name = Input::get('username');
-                $sign->user_number = Input::get('stu_id');
-                $sign->user_phone = Input::get('phonenumber');
-                $sign->user_lecture = Input::get('lec_id');
-                $sign->user_question = Input::get('questions');
-                $sign->save();
-                $lec_id = Input::get('lec_id');
-                return Redirect::route('home.index.success', array('lec_id' => $lec_id));
+//                $sign = new SignUser;
+//                $sign->user_name = Input::get('username');
+//                $sign->user_number = Input::get('stu_id');
+//                $sign->user_phone = Input::get('phonenumber');
+//                $sign->user_lecture = Input::get('lec_id');
+//                $sign->user_question = Input::get('questions');
+//                $sign->save();
+                $lec = SignLecture::find(Input::get('lec_id'));
+                return View::make('home.index.success')->with('returnMsg', $lec->lec_return_message);
             }
-            return Redirect::route('home.index.fail');
+            return View::make('home.index.fail');
         }
-        return Redirect::back()->withInput()->withErrors($validation->errors);
     }
 
     public function detail($id)
@@ -62,5 +90,10 @@ class IndexController extends BaseController {
         $lastOne = SignLecture::find($id);
 
         return View::make('home.index.detail')->with('lastOne', $lastOne);
+    }
+
+    public function success()
+    {
+
     }
 }

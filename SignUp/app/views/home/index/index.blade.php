@@ -32,7 +32,7 @@
                     {{ implode('<br>', $errors->all()) }}
             </div>
     @endif
-    {{ Form::open(array('route' => 'home.index.singUp')) }}
+    {{ Form::open(array('route' => array('home.index.signUp'))) }}
         <div id="form_outer">
             <div id="form_wrapper">
                 <label>姓    名：</label>

@@ -15,9 +15,11 @@ Route::get('/', array('as' => 'index', 'uses' => 'App\Controllers\Home\IndexCont
 Route::group(array('prefix' => 'home'), function()
 {
     Route::any('/', 'App\Controllers\Home\IndexController@index');
-    Route::post('index/singUp', array('as' => 'home.index.singUp', 'uses' => 'App\Controllers\Home\IndexController@signUp'));
-    Route::get('index/detail/{id}', array('as' => 'home.index.detail', 'uses' => 'App\Controllers\Home\IndexController@detail'));
     Route::get('index', array('as' => 'home.index.index', 'uses' => 'App\Controllers\Home\IndexController@index'));
+    Route::post('index/signUp', array('as' => 'home.index.signUp', 'uses' => 'App\Controllers\Home\IndexController@signUp'));
+    Route::get('index/signUp/{openid?}', array('as' => 'home.index.signUp', 'uses' => 'App\Controllers\Home\IndexController@signUp'));
+    Route::get('index/detail/{id}', array('as' => 'home.index.detail', 'uses' => 'App\Controllers\Home\IndexController@detail'));
+    Route::get('index/success', array('as' => 'home.index.index', 'uses' => 'App\Controllers\Home\IndexController@index'));
 });
 
 Route::get('admin/logout', array('as' => 'admin.logout', 'uses' => 'App\Controllers\Admin\AuthController@getLogout'));
