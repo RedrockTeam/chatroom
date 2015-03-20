@@ -1,0 +1,30 @@
+*{
+	font-family: 'Microsoft Yahei';
+}
+#header{
+	width:100%;
+	height: 93px;
+	line-height: 93px;
+	background-color: #ffbe19;
+	text-align: center;
+	color:white;
+	margin-bottom: 10px;
+	
+}
+#header a{
+	display: inline-block;
+	
+	
+	width:1.2rem;
+	font-size: 1rem;
+	float: left;
+	margin-left: 1%;
+	margin-top: 40px;
+}
+#header img{
+	width:1rem;
+    
+}
+p{
+	text-align: center;
+}
