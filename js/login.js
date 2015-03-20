@@ -2,6 +2,7 @@
   var submit = document.querySelector('#join_img');
 
 submit.onclick = function(e){
+    alert(1);
     e.preventDefault();
     check();
 }

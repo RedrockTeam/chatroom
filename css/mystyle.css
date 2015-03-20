@@ -140,6 +140,8 @@ textarea{
 	margin-bottom: 40px;
 	background-color:  #ffbe19;
 	height:5%;
+        outline:none;
+        border:none;
 }
 #cover{
    width:100%;
