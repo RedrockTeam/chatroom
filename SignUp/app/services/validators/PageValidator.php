@@ -11,6 +11,7 @@ class PageValidator extends Validator {
         'lec_speaker_introduce' => 'required',
         'lec_master_name' => 'required',
         'lec_return_message' => 'required',
+        'lec_time' => 'required',
         'beginTime' => 'required',
         'deadline' => 'required',
     );

@@ -30,8 +30,8 @@ class IndexController extends BaseController {
                     ->orderBy('lec_id', 'desc')
                     ->limit(1)
                     ->get();
-
-        return View::make('home.index.index')->with('lastOne', $lastOne[0]);
+        $time = time();
+        return View::make('home.index.index')->with('lastOne', $lastOne[0])->with('time', $time);
     }
 
     public function signUp($openid='null')
@@ -71,13 +71,13 @@ class IndexController extends BaseController {
 
             if ($result['status'] == 200)    //验证是否绑定重邮小帮手
             {
-//                $sign = new SignUser;
-//                $sign->user_name = Input::get('username');
-//                $sign->user_number = Input::get('stu_id');
-//                $sign->user_phone = Input::get('phonenumber');
-//                $sign->user_lecture = Input::get('lec_id');
-//                $sign->user_question = Input::get('questions');
-//                $sign->save();
+                $sign = new SignUser;
+                $sign->user_name = Input::get('username');
+                $sign->user_number = Input::get('stu_id');
+                $sign->user_phone = Input::get('phonenumber');
+                $sign->user_lecture = Input::get('lec_id');
+                $sign->user_question = Input::get('questions');
+                $sign->save();
                 $lec = SignLecture::find(Input::get('lec_id'));
                 return View::make('home.index.success')->with('returnMsg', $lec->lec_return_message);
             }

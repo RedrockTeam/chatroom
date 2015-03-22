@@ -28,7 +28,7 @@
     <div id="person_intro">
      	<p class="theme">特邀嘉宾简介：</p>
   		<div class="img_wrapper">
-           <img src="{{ URL::asset('uploads/'.$lastOne->lec_head_path) }}">
+           <img style="width: 120px;height: 120px;" src="{{ URL::asset('uploads/'.$lastOne->lec_head_path) }}">
   		</div>
   		<div class="person_content">
 	  		<p class="content_detail ">

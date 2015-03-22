@@ -59,6 +59,12 @@
             </div>
             <div style="float: left; margin-left: 10px;">
                 <div class="control-group">
+                    {{ Form::label('title', '活动开始时间:') }}
+                    <div class="controls">
+                        {{ Form::text('lec_time') }}
+                    </div>
+                </div>
+                <div class="control-group">
                     {{ Form::label('title', '报名开始时间:') }}
                     <div class="controls">
                         <input name="beginTime" type="date"/>

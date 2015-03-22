@@ -38,6 +38,7 @@ class LecturesController extends \BaseController {
             $lec->lec_speaker_introduce   = Input::get('lec_speaker_introduce');
             $lec->lec_master_name    = Input::get('lec_master_name');
             $lec->lec_return_message    = Input::get('lec_return_message');
+            $lec->lec_time = Input::get('lec_time');
             $lec->lec_begintime   = Input::get('beginTime');
             $lec->lec_deadline   = Input::get('deadline');
             $lec->lec_admin = Sentry::getUser()->id;
@@ -80,7 +81,7 @@ class LecturesController extends \BaseController {
                 return Redirect::route('admin.lectures.index');
             }
 
-            Notification::success('新增失败! ');
+            Notification::success('请添加头像!');
 
             return Redirect::route('admin.lectures.create');
         }
@@ -106,6 +107,7 @@ class LecturesController extends \BaseController {
             $lec->lec_speaker_introduce   = Input::get('lec_speaker_introduce');
             $lec->lec_master_name    = Input::get('lec_master_name');
             $lec->lec_return_message    = Input::get('lec_return_message');
+            $lec->lec_time = Input::get('lec_time');
             $lec->lec_begintime   = Input::get('beginTime');
             $lec->lec_deadline   = Input::get('deadline');
             $lec->lec_admin = Sentry::getUser()->id;
@@ -147,15 +149,13 @@ class LecturesController extends \BaseController {
                 $lec->lec_head_path = $name;
 
                 $lec->save();
-
                 Notification::success('修改成功！');
-
                 return Redirect::route('admin.lectures.index');
             }
 
-            Notification::success('修改失败! ');
+            Notification::success('请添加头像!');
 
-            return Redirect::route('admin.lectures.create');
+            return Redirect::route('admin.lectures.edit');
         }
 
         return Redirect::back()->withInput()->withErrors($validation->errors);

@@ -23,6 +23,7 @@
              <p id='theme'>今期话题：</p>
              <p id="content">{{ $lastOne->lec_title }}</p>
              <img id="person_logo" src="{{ URL::asset('images/person_logo.png') }}"><span id="name">特邀嘉宾：<span id="person">{{ $lastOne->lec_speaker_name }}</span></span>
+             <p class="time">活动开始时间：{{ $lastOne->lec_time }}</p>
              <p class="time">报名开始时间：{{ $lastOne->lec_begintime }}</p>
              <p class="time">报名截止时间：{{ $lastOne->lec_deadline }}</p>
         </div>
@@ -66,19 +67,13 @@
     return Date.parse(date)/1000;
     }
   window.onload = function(){
-            var submit = document.querySelector('#join_img');
-            var body = document.body;
             var begin = transdate("{{ $lastOne->lec_begintime }}");
             var end   = transdate("{{ $lastOne->lec_deadline }}");
-            var today = new Date().getTime();
-            alert(begin);
-            alert(end);
-            alert(today);
+            var today = {{ $time }};
+
             if(today > begin && today < end){
             }else{
-            	submit.style.background = 'gray';
-                submit.onclick = null;
-                body.style.color = 'gray';
+                document.querySelector("#footer").innerHTML="<p id='join_img' style='background-color:gray;text-align:center;'>非报名时间</p>";
             }
         }
 </script>

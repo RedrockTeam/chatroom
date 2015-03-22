@@ -12,6 +12,9 @@
             	<p><em>由 {{ $author }} 发布于 {{ $page->created_at }} 最后更新 {{ $page->updated_at }}</em></p>
             </div>
             <div class="body">
+                <p><span>活动开始时间:</span>{{ $page->lec_time }}</p>
+            </div>
+            <div class="body">
                 <p><span>报名开始时间:</span>{{ $page->lec_begintime }}</p>
             </div>
             <div class="body">
