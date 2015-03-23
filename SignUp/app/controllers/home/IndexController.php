@@ -50,7 +50,7 @@ class IndexController extends BaseController {
             )
         );
         if ($validator->fails()){
-            return Redirect::back()->withInput()->withErrors($validator->errors);
+            return Redirect::back()->withInput()->withErrors($validator->errors());
         }else {
             $re = Input::get('openid');
 
