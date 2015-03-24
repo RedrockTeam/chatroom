@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'SignUp',
-			'username'  => 'root',
-			'password'  => '',
+			'host'      => '202.202.43.41',
+			'database'  => 'signup2',
+			'username'  => 'redrock',
+			'password'  => 'hongyanredrock',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

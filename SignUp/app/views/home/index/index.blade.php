@@ -11,7 +11,6 @@
 </head>
 <body>
     <div id="header">
-         <a href="javascript:void(0)"><img src='{{ URL::asset('images/back.png') }}'></a>
          <p>微信报名系统</p>
     </div>
     <div id="title">

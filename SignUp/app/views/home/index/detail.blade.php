@@ -8,7 +8,7 @@
 </head>
 <body>
      <div id="header">
-         <a href="{{ URL::route('home.index.index') }}"><img src='{{ URL::asset('images/kind.png') }}'></a>
+         <a href="{{ URL::route('home.index.index') }}"><img src='{{ URL::asset('images/back.png') }}'></a>
          <p>微信报名系统</p>
     </div>
     <script type="text/javascript" src='js/layout.js'></script>
