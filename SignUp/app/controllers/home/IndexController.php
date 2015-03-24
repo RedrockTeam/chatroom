@@ -44,7 +44,7 @@ class IndexController extends BaseController {
                 'phonenumber' => $input['phonenumber']
             ),
             array(
-                'username' => 'required|between:4,10',
+                'username' => 'required|between:2,5',
                 'stu_id' => 'required|digits:10',
                 'phonenumber' => 'required|digits:11',
             )
